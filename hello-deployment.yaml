@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-world
+        image: 851785133101.dkr.ecr.ap-northeast-1.amazonaws.com/hello-world:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
